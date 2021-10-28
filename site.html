@@ -1,0 +1,122 @@
+<html>
+  <head>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@1.16.0/dist/full.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2/dist/tailwind.min.css" rel="stylesheet" type="text/css" />
+    <style>
+      .gryphindor {
+        background-color: #740001;
+        color: #FFD700;
+        border-width: 2px;
+        border-style: solid;
+        border-color: #FFD700;
+        border-radius: 4px;
+      }
+      .ravenclaw {
+        background-color: #222F5B;
+        color: #C0C0C0;
+        border-width: 2px;
+        border-style: solid;
+        border-color: #C0C0C0;
+        border-radius: 4px;
+      }
+      .hufflepuff {
+        background-color: #FFDB00;
+        color: #000;
+        border-width: 2px;
+        border-style: solid;
+        border-color: #000;
+        border-radius: 4px;
+      }
+      .slythern {
+        background-color: #1A472A;
+        color: #C0C0C0;
+        border-width: 2px;
+        border-style: solid;
+        border-color: #C0C0C0;
+        border-radius: 4px;
+      }
+    </style>
+    <script
+      src="https://auth.magic.link/pnp/callback"
+      data-magic-publishable-api-key="pk_live_279B2E778EF2C939">
+    </script>
+    <script>
+      window.addEventListener('@magic/ready', (event => {
+        const {magic, idToken, userMetadata} = event.detail;
+        localStorage.setItem('did', idToken)
+        document.getElementById('user').innerHTML = userMetadata.publicAddress
+      }))
+    </script>
+    <script>
+      let counter = 0
+      setInterval(() => {
+        document.getElementById('header').classList.remove('gryphindor')
+        document.getElementById('header').classList.remove('ravenclaw')
+        document.getElementById('header').classList.remove('hufflepuff')
+        document.getElementById('header').classList.remove('slythern')
+        if (counter === 0){
+          document.getElementById('header').classList.add('gryphindor')
+        } else if (counter === 1){
+          document.getElementById('header').classList.add('ravenclaw')
+        } else if (counter === 2){
+          document.getElementById('header').classList.add('hufflepuff')
+        } else if (counter === 3){
+          document.getElementById('header').classList.add('slythern')
+          counter = -1;
+        }
+        counter++
+      }, 5000)
+    </script>
+    <title>Hogwarts School of Magic</title>
+  </head>
+  <body>
+    <div class="flex flex-col">
+      <div id="header" class="flex justify-center items-center p-8 gryphindor">
+        <h1 class="text-4xl">Hogwarts A History</h1>
+      </div>
+      <div class="m-16">
+        <img class="float-left" src="/hogwarts_crest.png" width="100" height="100" alt="" />
+        <p><span class="text-3xl">Over</span> a thousand years ago, the four greatest witches and wizards of the age shared a dream, 
+          to create a school where young people of the wizarding world could study and be trained in the magical arts 
+          they needed to become skilled, fully-trained wizards. These four great wizards each founded one of the 
+          Houses of the school that they worked together to form: Hogwarts School of Witchcraft and Wizardry. They 
+          have been referred to as ‘The Hogwarts Four.’
+        </p>
+        <br />
+        <p>Each of the Founders contributed to the character of not just their houses but the whole school, but it 
+          was Helga Hufflepuff who perhaps did more than the others. Hufflepuff was particularly famous for her dexterity 
+          at food-related Charms. Many recipes traditionally served at Hogwarts feasts originated with Hufflepuff. 
+          She “brought people from different walks of life together to help build Hogwarts and was loved for her charming 
+          ways”. Another accomplishment of Hufflepuff’s was her concern for the treatment of House-elves in the Wizarding 
+          world. She made Hogwarts a refuge for them, and as a result they were treated more kindly there than elsewhere 
+          in the world at that time.</p>
+          <br />
+          <p>For a number of years, the four founders  worked together in harmony. Each of the founders took a group of 
+            students to be in their own house and even though they had differences of opinion about who should be trained, 
+            the house system helped them all to work together. However, as the years went by, the differences between 
+            Gryffindor and Slytherin became a serious rift.</p>
+          <br />
+          <p>Salazar Slytherin believed that only pure-blood witches and wizards should be allowed to attend Hogwarts. 
+            He got into an argument with Godric Gryffindor about this and eventually left the school. There was a 
+            legend that Slytherin built a secret chamber somewhere in Hogwarts that only his true heir would be able 
+            to open. This chamber, called the Chamber of Secrets, contained a monster that would finish his “noble purpose” 
+            of killing all the Muggle-born students at Hogwarts. As Slytherin’s heir, Tom Riddle did open the Chamber 
+            and released the monster, a basilisk. Harry Potter defeated the basilisk with the help of Fawkes the phoenix 
+            and the sword of Gryffindor.Salazar Slytherin believed that only pure-blood witches and wizards should be 
+            allowed to attend Hogwarts. He got into an argument with Godric Gryffindor about this and eventually left the 
+            school. There was a legend that Slytherin built a secret chamber somewhere in Hogwarts that only his true heir 
+            would be able to open. This chamber, called the Chamber of Secrets, contained a monster that would finish his 
+            “noble purpose” of killing all the Muggle-born students at Hogwarts. As Slytherin’s heir, Tom Riddle did open 
+            the Chamber and released the monster, a basilisk. Harry Potter defeated the basilisk with the help of Fawkes 
+            the phoenix and the sword of Gryffindor.</p>
+            <br />
+            <p>The school flourished over the centuries which followed. Nearly all witches and wizards in Britain for a 
+              thousand years have passed through the school, being taught the skills and control needed to become a fully 
+              qualified wizard and the fill a productive role in magical society.</p>
+      </div>
+    </div>
+    <footer class="fixed bottom-0 left-0 ml-8 w-full">
+      <div id="user"></div>
+    </footer>
+  </body>
+</html>
